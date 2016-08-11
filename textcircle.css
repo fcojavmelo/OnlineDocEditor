@@ -1,0 +1,13 @@
+top-margin {
+	margin-top: 50px;
+}
+
+iframe#viewer_iframe {
+	border: 1px solid gray;
+	resize: both;
+	width: 100%;
+} 
+.editingUsers {
+	padding-left: 15px;
+	padding-bottom: 2px;
+} 

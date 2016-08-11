@@ -1,0 +1,59 @@
+<head>
+	<title>textcircle</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<!-- starts navbar -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">TextCircle</a>
+			</div>
+			<p class="navbar-text navbar-right">
+				{{> loginButtons align="right"}}
+			</p>
+		</div>
+	</nav>
+	<!-- ends navbar -->
+	<div class="container-fluid top-margin">
+		<div class="row">
+			<div class="col-sm-12">
+				{{> editingUsers}}
+			</div>
+			<!-- the editor goes here -->
+			<div class="col-sm-6">
+				{{> editor}}
+			</div>
+			<!-- the viewer goes here -->
+			<div class="col-sm-6">
+				{{> viewer}}
+			</div>
+		</div>	
+	</div>
+</body>
+
+
+<template name="editor">
+	{{>sharejsCM docid=docid onRender=config id="editor"}}
+</template>
+
+<template name="viewer">
+	<iframe id="viewer_iframe">
+		
+	</iframe>
+</template>
+
+<template name="editingUsers">
+	Editors:
+	<div class="row editingUsers">
+		{{#each users}}
+			<span class="label label-success">
+				{{firstname}} {{lastname}} 
+			</span>
+			<br>
+		{{/each}}
+	</div>
+</template>
