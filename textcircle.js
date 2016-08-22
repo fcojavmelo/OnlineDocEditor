@@ -48,9 +48,27 @@ if (Meteor.isClient){
 			// console.log('users: ' + users);
 			return users;
 		}
+
 });
 
-}	
+//////
+///Events
+//////	
+
+	Template.navbar.events({
+		'click .js-add-doc': function (e) {
+			e.preventDefault();
+			console.log('Add a new doc!');
+			if(!Meteor.user()){ //no user available
+				// alert('You need to login before creating a new Document');
+				$('#notLoggedInModal').modal('show');
+			} else {
+
+			}   
+		}
+	});
+
+}	////end isClient
 
 if (Meteor.isServer){
 	Meteor.startup(function(){
